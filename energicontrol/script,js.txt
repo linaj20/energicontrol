@@ -1,0 +1,59 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("loginForm");
+    const recibosList = document.getElementById("recibosList");
+    const consejosList = document.getElementById("consejosList");
+    const serviciosList = document.getElementById("serviciosList");
+
+    // Datos de ejemplo
+    const recibos = [
+        { id: 1, monto: 50.00, fecha: '2023-01-01' },
+        { id: 2, monto: 60.00, fecha: '2023-02-01' },
+    ];
+
+    const consejos = [
+        "Apaga las luces cuando no las necesites.",
+        "Desconecta los electrodomésticos que no uses.",
+        "Usa bombillas LED para mayor eficiencia."
+    ];
+
+    const servicios = [
+        "Instalación de paneles solares",
+        "Auditoría energética",
+        "Mantenimiento de sistemas eléctricos"
+    ];
+
+    // Manejar inicio de sesión (simulado)
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        // Aquí puedes agregar la lógica de autenticación
+        console.log(`Correo: ${email}, Contraseña: ${password}`);
+        alert("Inicio de sesión simulado");
+
+        // Limpiar formulario
+        loginForm.reset();
+    });
+
+    // Llenar lista de recibos
+    recibos.forEach(recibo => {
+        const li = document.createElement("li");
+        li.textContent = `Monto: $${recibo.monto}, Fecha: ${recibo.fecha}`;
+        recibosList.appendChild(li);
+    });
+
+    // Llenar lista de consejos
+    consejos.forEach(consejo => {
+        const li = document.createElement("li");
+        li.textContent = consejo;
+        consejosList.appendChild(li);
+    });
+
+    // Llenar lista de servicios
+    servicios.forEach(servicio => {
+        const li = document.createElement("li");
+        li.textContent = servicio;
+        serviciosList.appendChild(li);
+    });
+});
